@@ -1,3 +1,8 @@
 [[redirects]]
   from = "/"
   to = "https://karloscodes.gumroad.com/l/coders-en-remoto"
+
+[[redirects]]
+  from = "/terminos"
+  to = "https://codersenremoto.notion.site/codersenremoto/T-rminos-y-condiciones-69357bff8f8b4f7d8409d0f4d910e467"
+
