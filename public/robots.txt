@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: http://astros.zank.studio/sitemap-index.xml
+Sitemap: https://codersenremoto.com/sitemap-index.xml

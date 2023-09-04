@@ -18,7 +18,7 @@ const buildDate = __DATE__;
 
 const { title } = Astro.props;
 
-const makeTitle = title ? title + " | " + "Coders en Remoto" : "Coders en remoto, comunidad de Discord";
+const makeTitle = title ? title + " | " + "Coders en Remoto" : "Coders en remoto, comunidad de desarrollo de software";
 ---
 
 <!DOCTYPE html>
@@ -36,6 +36,7 @@ const makeTitle = title ? title + " | " + "Coders en Remoto" : "Coders en remoto
 
 		<!-- Global CSS -->
 		<link rel="stylesheet" href="/index.css" />
+    <script async src="https://tally.so/widgets/embed.js"></script>
 
 		<SEO
 			title={makeTitle}
@@ -45,11 +46,11 @@ const makeTitle = title ? title + " | " + "Coders en Remoto" : "Coders en remoto
 				basic: {
 					url: canonicalURL,
 					type: "website",
-					title: `Coders en Remoto - Comunidad de Discord`,
+					title: `Coders en Remoto - comunidad de desarrollo de software`,
 					image: resolvedImageWithDomain,
 				},
 				image: {
-					alt: "Coders en Remoto - Comunidad de Discord",
+					alt: "Coders en Remoto - comunidad de desarrollo de software",
 				},
 			}}
 		/>
