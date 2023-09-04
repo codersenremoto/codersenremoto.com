@@ -1,0 +1,70 @@
+---
+import { SEO } from "astro-seo";
+import Footer from "@components/footer.astro";
+import Navbar from "@components/navbar/navbar.astro";
+import "@fontsource-variable/inter";
+import { ViewTransitions } from "astro:transitions";
+
+export interface Props {
+	title: string;
+}
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
+
+const resolvedImageWithDomain = new URL("/meta/opengraph.png", Astro.site).toString();
+
+// replaced dynamically
+const buildDate = __DATE__;
+
+const { title } = Astro.props;
+
+const makeTitle = title ? title + " | " + "Coders en Remoto" : "Coders en remoto, comunidad de desarrollo de software";
+---
+
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="theme-color" content="#ffffff" />
+    <html lang="es">
+    <html xml:lang="es" xmlns="http://www.w3.org/1999/xhtml">
+
+		<ViewTransitions />
+
+		<!-- Global CSS -->
+		<link rel="stylesheet" href="/index.css" />
+    <script async src="https://tally.so/widgets/embed.js"></script>
+
+		<SEO
+			title={makeTitle}
+			description="Una comunidad para conectar, compartir y aprender"
+			canonical={canonicalURL}
+			openGraph={{
+				basic: {
+					url: canonicalURL,
+					type: "website",
+					title: `Coders en Remoto - comunidad de desarrollo de software`,
+					image: resolvedImageWithDomain,
+				},
+				image: {
+					alt: "Coders en Remoto - comunidad de desarrollo de software",
+				},
+			}}
+		/>
+	</head>
+	<body class="dark:bg-stone-950">
+		<Navbar />
+		<slot />
+		<Footer />
+		<style is:global>
+			/* Improve Page speed */
+			/* https://css-tricks.com/almanac/properties/c/content-visibility/ */
+			img {
+				content-visibility: auto;
+			}
+		</style>
+	</body>
+</html>
