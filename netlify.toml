@@ -6,3 +6,6 @@
   from = "/terminos"
   to = "https://codersenremoto.notion.site/codersenremoto/T-rminos-y-condiciones-69357bff8f8b4f7d8409d0f4d910e467"
 
+[build]
+  command = "npm run build"
+  publish = "dist"
