@@ -1,10 +1,5 @@
 ---
-import { changeLanguage } from "i18next";
 import Layout from "@layouts/Layout.astro";
-import { localizePath } from "astro-i18next";
-
-changeLanguage("en");
-
 const title = `Error 404`;
 ---
 
@@ -16,9 +11,9 @@ const title = `Error 404`;
           <span class="sr-only">Error</span>
           <span class="text-primary">404</span>
         </h2>
-        <p class="text-3xl font-semibold md:text-3xl">Sorry, we couldn't find this page.</p>
-        <p class="mt-4 mb-8 text-lg text-muted dark:text-slate-400">But dont worry, you can find plenty of other things on our homepage.</p>
-        <a rel="noopener noreferrer" href={localizePath("/")} class="btn ml-4">Back to homepage</a>
+        <p class="text-3xl font-semibold md:text-3xl">No hemos podido encontrar la página que buscabas</p>
+        <p class="mt-4 mb-8 text-lg text-muted dark:text-slate-400">quieres ir al inicio?</p>
+        <a rel="noopener noreferrer" href="/" class="btn ml-4">Hazlo aquí</a>
       </div>
     </div>
   </section>

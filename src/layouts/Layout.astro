@@ -2,15 +2,11 @@
 import { SEO } from "astro-seo";
 import Footer from "@components/footer.astro";
 import Navbar from "@components/navbar/navbar.astro";
-import { HeadHrefLangs } from "astro-i18next/components";
-import i18next from "i18next";
-import { pwaInfo } from "virtual:pwa-info";
 import "@fontsource-variable/inter";
 import { ViewTransitions } from "astro:transitions";
 
 export interface Props {
 	title: string;
-	lang: string;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
@@ -20,20 +16,21 @@ const resolvedImageWithDomain = new URL("/meta/opengraph.png", Astro.site).toStr
 // replaced dynamically
 const buildDate = __DATE__;
 
-const { title, lang = null } = Astro.props;
+const { title } = Astro.props;
 
-const makeTitle = title ? title + " | " + "Astros" : "Astros - Starter Template for Astro with Tailwind CSS";
+const makeTitle = title ? title + " | " + "Coders en Remoto" : "Coders en remoto, comunidad de Discord";
 ---
 
 <!DOCTYPE html>
-<html lang={lang ?? i18next.language}>
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="theme-color" content="#ffffff" />
-		<HeadHrefLangs />
+    <html lang="es">
+    <html xml:lang="es" xmlns="http://www.w3.org/1999/xhtml">
 
 		<ViewTransitions />
 
@@ -42,23 +39,20 @@ const makeTitle = title ? title + " | " + "Astros" : "Astros - Starter Template 
 
 		<SEO
 			title={makeTitle}
-			description="Astros is a starter website template for Astro built with TailwindCSS and alpine js."
+			description="Una comunidad para conectar, compartir y aprender"
 			canonical={canonicalURL}
 			openGraph={{
 				basic: {
 					url: canonicalURL,
 					type: "website",
-					title: `Astros - Starter Template for Astro`,
+					title: `Coders en Remoto - Comunidad de Discord`,
 					image: resolvedImageWithDomain,
 				},
 				image: {
-					alt: "Astros Homepage Screenshot",
+					alt: "Coders en Remoto - Comunidad de Discord",
 				},
 			}}
 		/>
-
-		{pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
-		<script src="/src/pwa.ts"></script>
 	</head>
 	<body class="dark:bg-stone-950">
 		<Navbar />

@@ -2,30 +2,24 @@
 import Link from "@components/ui/link.astro";
 import Button from "@components/ui/button.astro";
 import { Icon } from "astro-icon";
-import { localizePath } from "astro-i18next";
-import { t } from "i18next";
 
 export const menuitems = [
+	// {
+	// 	title: "Sub items",
+	// 	children: [
+	// 		{ title: "Subitem 1", path: "#" },
+	// 		{ title: "Subitem 2", path: "#" },
+	// 		{ title: "Subitem 3", path: "#" },
+	// 	],
+	// },
 	{
-		title: "Sub items",
-		children: [
-			{ title: "Subitem 1", path: "#" },
-			{ title: "Subitem 2", path: "#" },
-			{ title: "Subitem 3", path: "#" },
-		],
+		title: "Código de conducta",
+		path: "/terminos",
 	},
-	{
-		title: "header.pricing",
-		path: "/pricing",
-	},
-	{
-		title: "header.blog",
-		path: "/blog",
-	},
-	{
-		title: "header.contact",
-		path: "/contact",
-	},
+  {
+		title: "Miembros",
+		path: "/miembros",
+	}
 ];
 ---
 
@@ -34,10 +28,10 @@ export const menuitems = [
 	class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8 z-10 md:pt-2 relative">
 	<div class="p-4 flex flex-row items-center justify-between">
 		<a
-			href={localizePath("/")}
+			href="/"
 			class="flex gap-3 items-center text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark:text-white focus:outline-none focus:shadow-outline">
 			<Icon name="logo" width="30" class="dark:invert" alt="Logo"></Icon>
-			Astros
+			Coders en Remoto
 		</a>
 		<button class="md:hidden text-gray-500 w-10 h-10 relative focus:outline-none" @click="open = !open">
 			<span class="sr-only">Open main menu</span>
@@ -101,7 +95,7 @@ export const menuitems = [
 								<div class="px-2 py-2 rounded-md shadow dark:bg-gray-800">
 									{ item.children.map((subitem) =>
 										<Link
-											href={localizePath(subitem.path)}
+											href={subitem.path}
 											style="hover"
 											size="sm"
 											class="block"
@@ -127,7 +121,7 @@ export const menuitems = [
 						</div>
 					) : (
 						<Link
-							href={localizePath(item.path)}
+							href={item.path}
 							style="hover"
 							size="sm"
 							x-data="{ isActive: false }"
@@ -145,18 +139,15 @@ export const menuitems = [
 							:class="{ 'bg-gray-200 dark:bg-gray-600': isActive }"
 							data-path={item.path}
 						>
-							{t(item.title)}
+							{item.title}
 						</Link>
 					)
 				)
 			}
 		</div>
 		<div class="mt-4 md:mt-0 flex flex-col md:flex-row gap-4">
-			<Link href="/login" style="outline" class="md:px-3 md:py-2 leading-6">
-				{t("header.secondary_button_text")}
-			</Link>
 			<Link href="https://github.com/zankhq/astros" class="md:px-3 md:py-2 leading-6">
-				{t("header.primary_button_text")}
+				¡Unirme!
 			</Link>
 		</div>
 	</nav>
