@@ -1,19 +1,51 @@
 ---
 import Container from "@components/container.astro";
 import Layout from "@layouts/Layout.astro";
+// Fetch the JSON data
+import members from "../members.json";
+
+let selectedLocation = "Todas";
+const uniqueLocations = Array.from(
+  new Set(members.map((member) => member.location)),
+);
 ---
 
-<Layout title="404">
-  <section class="flex items-center h-full p-16">
-    <div
-      class="container flex flex-col items-center justify-center px-5 mx-auto my-8"
-    >
-      <div class="max-w-md text-center">
+<Layout title="Directorio de miembros">
+  <section class="flex justify-center items-center h-full p-2">
+    <div class="px-5 mx-auto my-8 w-8/12 max-w-screen-lg min-w-screen-sm">
+      <div class="max-w-md">
         <h1
-          class="mt-6 text-lg leading-8 text-gray-900 dark:text-gray-100 font-semibold underline"
+          class="mt-6 text-lg leading-8 text-gray-900 dark:text-gray-100 font-semibold py-8"
         >
-          Directorio de miembors (en construcción)
+          Directorio de miembros
         </h1>
+      </div>
+
+      <div class="container mx-auto text-center">
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+        >
+          {
+            members.map((member) => (
+              <div class="text-center" key={member.name}>
+                <img
+                  src={member.avatarUrl}
+                  alt={member.name}
+                  class="h-24 w-24 rounded-full mx-auto mb-2 border-4 border-gray-700 shadow-md dark:shadow-white dark:shadow-sm dark:border-gray-300"
+                />
+                <a
+                  href={member.website}
+                  target="_blank"
+                  rel="noopener"
+                  class="text-sm text-gray-900 dark:text-gray-100 hover:underline"
+                >
+                  {member.name}
+                </a>
+                <p class="text-xs text-gray-900 dark:text-gray-100">{member.location}</p>
+              </div>
+            ))
+          }
+        </div>
       </div>
     </div>
   </section>
