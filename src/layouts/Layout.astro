@@ -34,53 +34,44 @@ const makeTitle = title
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="theme-color" content="#ffffff" />
-		<html lang="es">
-			<html xml:lang="es" xmlns="http://www.w3.org/1999/xhtml">
-				<ViewTransitions />
+		<ViewTransitions />
 
-				<!-- Global CSS -->
-				<link rel="stylesheet" href="/index.css" />
-				<script async src="https://tally.so/widgets/embed.js"></script>
-				<script async src="https://gumroad.com/js/gumroad.js"></script>
-				<script>
-					// Run this script after the component has been mounted to the DOM
-					Astro.onMount(() => {
-						const element = document.getElementByClassName(".cart-button")[0];
-						if (element) {
-							element.style.display = "none";
-						}
-					});
-				</script>
+		<!-- Global CSS -->
+		<link rel="stylesheet" href="/index.css" />
+		<script async src="https://tally.so/widgets/embed.js"></script>
+		<script async src="https://gumroad.com/js/gumroad.js"></script>
 
-				<SEO
-					title={makeTitle}
-					description="Una comunidad para conectar, compartir y aprender"
-					canonical={canonicalURL}
-					openGraph={{
-						basic: {
-							url: canonicalURL,
-							type: "website",
-							title: `Coders en Remoto - comunidad de desarrollo de software`,
-							image: resolvedImageWithDomain,
-						},
-						image: {
-							alt: "Coders en Remoto - comunidad de desarrollo de software",
-						},
-					}}
-				/>
-			</html>
-			<body class="dark:bg-stone-950">
-				<Navbar />
-				<slot />
-				<Footer />
-				<style is:global>
-					/* Improve Page speed */
-					/* https://css-tricks.com/almanac/properties/c/content-visibility/ */
-					img {
-						content-visibility: auto;
-					}
-				</style>
-			</body>
-		</html>
+		<SEO
+			title={makeTitle}
+			description="Una comunidad para conectar, compartir y aprender"
+			canonical={canonicalURL}
+			openGraph={{
+				basic: {
+					url: canonicalURL,
+					type: "website",
+					title: `Coders en Remoto - comunidad de desarrollo de software`,
+					image: resolvedImageWithDomain,
+				},
+				image: {
+					alt: "Coders en Remoto - comunidad de desarrollo de software",
+				},
+			}}
+		/>
 	</head>
+	<body class="dark:bg-stone-950">
+		<Navbar />
+		<slot />
+		<Footer />
+		<style is:global>
+			.gumroad .cart-button {
+    		display: none !important;
+			}
+
+			/* Improve Page speed */
+			/* https://css-tricks.com/almanac/properties/c/content-visibility/ */
+			img {
+				content-visibility: auto;
+			}
+		</style>
+	</body>
 </html>
