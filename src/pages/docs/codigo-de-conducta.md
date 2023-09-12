@@ -4,6 +4,8 @@ title: "Código de conducta"
 date: "09 Aug 2023"
 ---
 
+# Código de Conducta 
+
 *Última actualización: Agosto 2023*
 
 Para mantener un ambiente positivo y constructivo, es importante que **todos los miembros sigamos la siguientes pautas**. **Ayudemos a crear un espacio en el que todos se sientan respetados y valorados.** 

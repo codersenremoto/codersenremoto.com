@@ -70,7 +70,7 @@ export const menuitems = [
 					item.children && item.children.length ? (
 						<div @click.away="open = false" class="relative" x-data="{ open: false }">
 							<Button @click="open = !open" style="link" size="sm" class="mt-[2px]">
-								{t(item.title)}
+								{item.title}
 								<svg
 									fill="currentColor"
 									viewBox="0 0 20 20"
