@@ -10,15 +10,18 @@ const uniqueLocations = Array.from(
 );
 ---
 
-<Layout title="Directorio de miembros">
+<Layout title="Directorio público de miembros">
   <section class="flex justify-center items-center h-full p-2">
     <div class="px-5 mx-auto my-8 w-8/12 max-w-screen-lg min-w-screen-sm">
       <div class="max-w-md">
         <h1
-          class="mt-6 text-lg leading-8 text-gray-900 dark:text-gray-100 font-semibold py-8"
+          class="mt-6 text-lg leading-8 text-gray-900 dark:text-gray-100 font-semibold py-8 pb-1"
         >
-          Directorio de miembros
+          Directorio público de miembros
         </h1>
+        <p class="pb-12 text-sm dark:text-gray-100">
+          Cómo listarme? Haciendo un PR como <a class="underline font-medium" href="https://github.com/codersenremoto/codersenremoto.com/pull/2">este</a> 
+        </p>
       </div>
 
       <div class="container mx-auto text-center">
@@ -37,7 +40,7 @@ const uniqueLocations = Array.from(
                   href={member.website}
                   target="_blank"
                   rel="noopener"
-                  class="text-sm text-gray-900 dark:text-gray-100 hover:underline"
+                  class="text-sm text-gray-900 dark:text-gray-100 hover:underline font-medium"
                 >
                   {member.name}
                 </a>
